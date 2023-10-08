@@ -1,3 +1,3 @@
-# Alican Dökmen
+# BilgeAdam Boost Online-6 Ödevlerim
 
-BilgeAdam Boost Ödevlerim
+(c)2023 Alican Dökmen
