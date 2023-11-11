@@ -1,7 +1,9 @@
-54--1.SORGU: Danýþmaný olan talebelerin ad,soyad, danýþman ad ve danýþman soyad olmak üzere inner join sorgusu ile getiriniz.
+--1.SORGU: Danýþmaný olan talebelerin ad,soyad, danýþman ad ve danýþman soyad olmak üzere inner join sorgusu ile getiriniz.
 
 SELECT CONCAT(Danismanlar.Ad,' ',Danismanlar.Soyad) AS [Danýþman Ad], CONCAT(Talebeler.Ad,' ',Talebeler.Soyad) AS [Öðrenci Adý] FROM Talebeler
 INNER JOIN Danismanlar ON Danismanlar.Id=Talebeler.DanismanId
+
+
 
  --2.SORGU : Order Details tablosu ile Products tablosunu inner join yaparak dicount'u sýfýrdan farklý olanlarýn
  --ProductName ve UnitPrice kolonlarýný getiriniz.
@@ -12,6 +14,7 @@ GO
 SELECT Products.ProductName, [Order Details].UnitPrice AS [Order Unitprice], Products.UnitPrice AS [Products Unitprice]
 FROM [Order Details] INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
 WHERE [Order Details].Discount != 0;
+
 
 --3.SORGU : Products tablosu ile Suppliers tablosunu inner join yaparak Supplier'ýn þehri (city) New Orleans olanlarýn,
 --city, companyname ve productname'lerini, productname'e göre azalan sýrada sýralayarak getiriniz.
@@ -29,7 +32,7 @@ WHERE TerritoryDescription='BOSTON'
 --ve Discontinued deðerlerini inner join ile getiriniz. (product ve category)
 
 SELECT ProductName ,CategoryName,Discontinued FROM Products INNER JOIN Categories c ON Products.CategoryID=c.CategoryID
-WHERE (CategoryName='Seafood' OR Description='Cheeses') AND Discontinued=1;
+WHERE (CategoryName='Seafood' OR Description like '%Cheeses%') AND Discontinued=1
 
 
 --6)Employees tablosundaki kiþilerin adlarýný, soyadlarýný, rapor verdikleri çalýþanýn adlarýný ve soyadlarýný getiriniz. 
