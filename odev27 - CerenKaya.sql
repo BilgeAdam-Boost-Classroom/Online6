@@ -44,6 +44,6 @@ WHERE O.OgretmenId IS NULL
 --• GENEL liste: Ogretmen ad, ogretmen soyad,sýnýfýd ve sýnýfad.
 --Deðerler varsa yazmalý yoksa NULL yazmalý.
 
-SELECT CONCAT(o.OgretmenAd,' , ',o.OgretmenSoyad) AS [Öðretmen Ad Soyad],
+SELECT CONCAT(o.OgretmenAd,' ',o.OgretmenSoyad) AS [Öðretmen Ad Soyad],
 S.SinifId,s.SinifAd
 FROM Ogretmenler o FULL JOIN Siniflar s ON s.OgretmenId = o.OgretmenId
