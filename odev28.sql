@@ -6,15 +6,9 @@ GROUP BY  ProductID, UnitPrice
 ORDER BY UnitPrice DESC, ProductID;
 	--2--
 
-SELECT 
-    t.TerritoryDescription,
-    r.RegionDescription
-FROM 
-    Territories t
-INNER JOIN 
-    Region r ON t.RegionID = r.RegionID;
-
-
+SELECT   t.TerritoryDescription,  r.RegionDescription
+FROM  Territories t
+INNER JOIN   Region r ON t.RegionID = r.RegionID;
 
 --2.yol
     SELECT 
@@ -27,6 +21,8 @@ FROM   Territories t;
 SELECT *
 FROM Customers
 WHERE LEN(PostalCode) > 5;
+
+
 --2.yol
 SELECT *
 FROM Customers
@@ -40,6 +36,10 @@ INNER JOIN Categories EC ON E.EmployeeID = EC.CategoryID
 INNER JOIN Categories C ON EC.CategoryID = C.CategoryID
 WHERE C.CategoryName = 'Seafood';
 
+--subquery kullanarak 
+SELECT   E.EmployeeID, E.FirstName,E.LastName
+FROM Employees E
+WHERE EmployeeID=(SELECT CategoryID FROM Categories WHERE CategoryName='Seafood')
 --5
 SELECT   P.ProductName,  C.CategoryName
 FROM   Products P
@@ -57,7 +57,7 @@ ORDER BY ProductName DESC;
 SELECT ProductName, UnitsInStock, UnitPrice
 FROM  Products
 WHERE  UnitsInStock > 50 AND UnitPrice > 50
-ORDER BY UnitsInStock ASC;
+ORDER BY UnitsInStock ;
 
 	--8
 SELECT   ProductName, UnitsInStock, UnitPrice
@@ -67,9 +67,19 @@ WHERE  UnitsInStock > 50 AND UnitPrice > 50 AND UnitsInStock =
         SELECT TOP 1 UnitsInStock 
         FROM Products 
         WHERE UnitsInStock > 50 AND UnitPrice > 50
-        ORDER BY UnitsInStock ASC
+        ORDER BY UnitsInStock 
 		)
 
+
+SELECT   ProductName, UnitsInStock, UnitPrice
+FROM  Products
+WHERE  EXISTS (select*from Products where UnitsInStock > 50 AND UnitPrice > 50 AND ProductID=Products.ProductID)
+ORDER BY UnitPrice 
+	
+
+
+	SELECT ProductName, UnitsInStock, UnitPrice FROM Products
+	WHERE UnitsInStock IN  (SELECT UnitsInStock FROM  Products WHERE  UnitsInStock > 50 AND UnitPrice > 50)
 		--9 
 SELECT  P.ProductName, C.CategoryName AS Category
  FROM  Products P
