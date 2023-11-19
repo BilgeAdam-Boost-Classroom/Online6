@@ -23,6 +23,27 @@ AS
 SELECT dbo.GunHesapla(OrderDate, ShippedDate) FROM Orders
 
 --3)Employees tablosundan firstname’leri, dýþarýdan gönderilen harf ile baþlayanlarý tablo olarak 
---döndüren fonksiyon yazýnýz. Ardýndan bu fonksiyonu kullanarak A ile baþlayanlarý listeleyiniz.CREATE FUNCTION IlkHarfArama(@Harf NVARCHAR(1))RETURNS TABLEAS	RETURN SELECT * FROM Employees WHERE FirstName LIKE @Harf + '%'SELECT * FROM dbo.IlkHarfArama('A')--4) Order details tablosundaki unitprice’larýn kýrpýlmýþ ortalamasýný hesaplayan stored procedure 
+--döndüren fonksiyon yazýnýz. Ardýndan bu fonksiyonu kullanarak A ile baþlayanlarý listeleyiniz.
+CREATE FUNCTION IlkHarfArama(@Harf NVARCHAR(1))
+RETURNS TABLE
+AS
+	RETURN SELECT * FROM Employees WHERE FirstName LIKE @Harf + '%'
+
+SELECT * FROM dbo.IlkHarfArama('A')
+
+--4) Order details tablosundaki unitprice’larýn kýrpýlmýþ ortalamasýný hesaplayan stored procedure 
 --yazýnýz. (Kýrpýlmýþ ortalama: En küçük ve en büyük deðerler dahil edilmeden hesaplanan 
---aritmetik ortalamadýr. Bölerken, (terim sayýsý-2) ’ye bölünmelidir.)CREATE PROC spKirpilmisOrtalamaAS	BEGIN	DECLARE @MaxFiyat INT;	DECLARE @MinFiyat INT;				SELECT AVG(UnitPrice) AS Kirpilmis_Ortalama FROM [Order Details] WHERE UnitPrice < (SELECT MAX(UnitPrice) FROM [Order Details])  AND UnitPrice >(SELECT MIN(UnitPrice) FROM [Order Details])	ENDspKirpilmisOrtalama
+--aritmetik ortalamadýr. Bölerken, (terim sayýsý-2) ’ye bölünmelidir.)
+
+CREATE PROC spKirpilmisOrtalama
+AS
+	BEGIN
+
+	
+		SELECT AVG(UnitPrice) AS Kirpilmis_Ortalama FROM [Order Details] WHERE UnitPrice < (SELECT MAX(UnitPrice) FROM [Order Details])  AND UnitPrice >(SELECT MIN(UnitPrice) FROM [Order Details])
+	END
+spKirpilmisOrtalama
+
+SELECT COUNT(*) FROM [Order Details]
+select SUM(UnitPrice) from [Order Details] ORDER BY 1 DESC
+PRINT (56500-4238)/(2155-27)
