@@ -55,16 +55,21 @@
     float: right;
     margin-right: 20px;
 }
-.container .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+#sabitle{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+/* .container .center  {
+    position: fixed;
+    bottom: 0;
+    right: 0;
     transform: translate(-50%, -50%);
     font-family: sans-serif;
     user-select: none;
     
     
-}
+} */
 
 .center .buttons{
     margin: 35px 280px;
