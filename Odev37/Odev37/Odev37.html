@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odev37</title>
+    <style>
+        .div1{
+            display: flex;
+            border: solid 10px gray;
+            height: 400px;
+            width: 402px;
+            background-color: aqua;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 70px;
+            background-color: black;
+            color: blue;
+        }        
+        .div2{
+            display: flex;
+            border: solid 10px dimgray;
+            width: 402px;
+            border-radius: 10%;
+        } 
+        button{
+            height: 50px;
+            width: 67px;
+            border-radius: 10%;
+            font-size: xx-large;
+        }       
+    </style>
+</head>
+<body>
+    <div class = "div1" id = "ekran">
+        ÖDEV 37
+    </div>
+    <div class = "div2">
+        <button id = "btnAc">**</button>
+        <button id = "btnO">O</button>
+        <button id = "btnN">N</button>
+        <button id = "btnL">L</button>
+        <button id = "btn0">0</button>
+        <button id = "btn6">6</button>
+    </div>
+    <script>
+        let durum = "kapali";
+
+        let ekran = document.getElementById("ekran");
+        let btnAc = document.getElementById("btnAc");
+        let btnO = document.getElementById("btnO");
+        let btnN = document.getElementById("btnN");
+        let btnL = document.getElementById("btnL");
+        let btn0 = document.getElementById("btn0");
+        let btn6 = document.getElementById("btn6");
+
+        btnAc.addEventListener('click',function(){
+            ekran.style.backgroundColor = "black";
+            ekran.style.color = "blue"
+            if(durum == "kapali"){
+                ekran.textContent = "AÇILDI";
+                durum = "acik";
+                ekran.style.backgroundColor = "white";
+                ekran.style.color = "black"
+            }
+            else{
+                ekran.textContent = "KAPANDI";
+                durum = "kapali";
+
+                setTimeout(function(){
+                    ekran.textContent = "ÖDEV 37";
+                    durum = "kapali";
+                }, 2000);
+            }
+        });
+        btnO.addEventListener('click',function(){
+            if(durum == "acik"){
+                ekran.textContent = "O";
+                durum = "acik";
+                ekran.style.backgroundColor = "red";
+                ekran.style.color = "white";
+            }
+            else{
+                ekran.textContent = "ÖNCE AÇINIZ!"                
+            }
+        });
+        btnN.addEventListener('click',function(){
+            if(durum == "acik"){
+                ekran.textContent = "N"; 
+                ekran.style.backgroundColor = "white";
+                ekran.style.color = "red";               
+            }
+            else{
+                ekran.textContent = "ÖNCE AÇINIZ!"                
+            }
+        });
+        btnL.addEventListener('click',function(){
+            if(durum == "acik"){
+                ekran.textContent = "L"; 
+                ekran.style.backgroundColor = "blue"; 
+                ekran.style.color = "white";             
+            }
+            else{
+                ekran.textContent = "ÖNCE AÇINIZ!"                
+            }
+        });
+        btn0.addEventListener('click',function(){
+            if(durum == "acik"){
+                ekran.textContent = "O"; 
+                ekran.style.backgroundColor = "white"; 
+                ekran.style.color = "blue";              
+            }
+            else{
+                ekran.textContent = "ÖNCE AÇINIZ!"                
+            }
+        });
+        btn6.addEventListener('click',function(){
+            if(durum == "acik"){
+                ekran.textContent = "6"; 
+                ekran.style.backgroundColor = "gray";  
+                ekran.style.color = "white";             
+            }
+            else{
+                ekran.textContent = "ÖNCE AÇINIZ!"                
+            }
+        });
+       
+    </script>
+</body>
+</html>
