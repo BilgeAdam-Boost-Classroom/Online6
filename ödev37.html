@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>odev-37</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .kutu {
+        border: 10px solid gray;
+        width: max-content;
+        padding-left: 60px;
+        padding-right: 60px;
+        border-radius: 5px;
+        background-color: black;
+        color: blue;
+        font-size: xx-large;
+      }
+
+      .butonlarim {
+        margin-top: 25px;
+        border: 5px solid;
+        width: max-content;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .butonlarim > button {
+        font-size: 24px;
+        color: red;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kutu"><h1 id="baslik">ÖDEV 37</h1></div>
+    <div class="butonlarim">
+      <button id="b1" onclick="acildi()">ON / OFF</button>
+      <button id="b2" onclick="acildiMiO()">O</button>
+      <button id="b3" onclick="acildiMiN()">N</button>
+      <button id="b4" onclick="acildiMiL()">L</button>
+      <button id="b5" onclick="acildiMi0()">0</button>
+      <button id="b6" onclick="acildiMi6()">6</button>
+    </div>
+
+    <script>
+      let acikMi = false;
+      function acildi() {
+        if (acikMi) {
+          document.getElementById("baslik").innerText = "KAPATILIYOR...";
+          acikMi = false;
+        } else {
+          document.getElementById("baslik").innerText = "AÇILDI:)";
+          acikMi = true;
+        }
+      }
+
+      function acildiMiO() {
+        if (acikMi) document.getElementById("baslik").innerText = "O";
+        else document.getElementById("baslik").innerText = "ÖNCE AÇINIZ!";
+      }
+      function acildiMiN() {
+        if (acikMi) document.getElementById("baslik").innerText = "N";
+        else document.getElementById("baslik").innerText = "ÖNCE AÇINIZ!";
+      }
+      function acildiMiL() {
+        if (acikMi) document.getElementById("baslik").innerText = "L";
+        else document.getElementById("baslik").innerText = "ÖNCE AÇINIZ!";
+      }
+      function acildiMi0() {
+        if (acikMi) document.getElementById("baslik").innerText = "0";
+        else document.getElementById("baslik").innerText = "ÖNCE AÇINIZ!";
+      }
+      function acildiMi6() {
+        if (acikMi) document.getElementById("baslik").innerText = "6";
+        else document.getElementById("baslik").innerText = "ÖNCE AÇINIZ!";
+      }
+    </script>
+  </body>
+</html>
