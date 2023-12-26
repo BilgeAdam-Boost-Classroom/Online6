@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÖDEV 37</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #screen {
+      border: 2px solid #000;
+      padding: 100px;
+      width: 300px;
+      margin: 0 auto;
+      background-color: #f0f0f0;
+    }
+
+    #message {
+      font-size: 36px;
+      color: blue;
+      margin-bottom: 20px;
+    }
+
+    #buttons {
+      display: flex;
+    }
+
+    .button {
+      width: 50px;
+      height: 30px;
+      border: 5em;
+      border-bottom: #000;
+      color: red;
+      background-color: rgb(231, 207, 175);
+      cursor: pointer;
+      border-radius: 5px;
+      
+            
+    }
+  </style>
+</head>
+<body>
+
+<div id="screen">
+  <p id="message"></p>
+  <div id="buttons">
+    <div class="button" onclick="togglePower()">X</div>
+    <div class="button" onclick="handleKeyPress('O')">O</div>
+    <div class="button" onclick="handleKeyPress('L')">L</div>
+    <div class="button" onclick="handleKeyPress('0')">0</div>
+    <div class="button" onclick="handleKeyPress('6')">6</div>
+  </div>
+</div>
+
+<script>
+  let powerOn = false;
+  let pressedKey = "";
+  const messageElement = document.getElementById("message");
+
+  function showMessage(message) {
+    messageElement.innerText = message;
+  }
+
+  function togglePower() {
+    powerOn = !powerOn;
+    showMessage("");
+  }
+
+  function handleKeyPress(key) {
+    if (!powerOn) {
+      showMessage("ÖNCE AÇINIZ");
+      return;
+    }
+
+    pressedKey = key;
+    showMessage("Basılan Tuş: " + pressedKey);
+  }
+</script>
+
+</body>
+</html>
