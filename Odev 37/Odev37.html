@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ödev 37</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+       
+      }
+      .dıs {
+        width: 700px;
+        height: 700px;
+        border: 5px dashed black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .yazi {
+        text-align: center;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: blue;
+        border-left: 30px solid rgb(194, 188, 188);
+        border-bottom: 30px solid rgb(194, 188, 188);
+        border-right: 30px solid rgb(194, 188, 188);
+        border-radius: 25px 25px 0 0;
+        transition: all 2s;
+
+        width: 200px;
+        height: 200px;
+      }
+      .dıs .buttonlar {
+        display: flex;
+        background-color: black;
+        align-items: center;
+        border-radius: 10px;
+        width: 280px;
+       justify-content: center;
+      }
+      .button {
+        width: 40px;
+        height: 30px;
+        margin: 10px 0px;
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 5px;
+        
+      }
+      .checkbox {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dıs">
+      <div class="yazi" id="yazi">
+        <p>ÖDEV 37</p>
+      </div>
+      <div class="buttonlar" id="buttonlar">
+        <input
+          class="checkbox"
+          id="checkbox"
+          type="checkbox"
+          onchange="renkDegis()"
+        />
+        <button class="button" id="buton1" onclick="button1()">O</button>
+        <button class="button" id="buton2" onclick=" button2()">N</button>
+        <button class="button" id="buton3" onclick=" button3()">L</button>
+        <button class="button" id="buton4" onclick=" button4()">0</button>
+        <button class="button" id="buton5" onclick=" button5()">6</button>
+      </div>
+    </div>
+    <script>
+        let butonlar=document.getElementById("buttonlar");
+      let yazi = document.getElementById("yazi");
+      let checkBox = document.getElementById("checkbox");
+      let buton1 = document.getElementById("buton1");
+      let buton2 = document.getElementById("buton2");
+      let buton3 = document.getElementById("buton3");
+      let buton4 = document.getElementById("buton4");
+      let buton5 = document.getElementById("buton5");
+      renkDegis();
+      function renkDegis() {
+        if (checkBox.checked) {
+          yazi.style.backgroundColor= "white";
+          yazi.innerHTML ="AÇILDI";
+        }
+        else {
+            yazi.style.backgroundColor = "black";
+            yazi.style.color = "blue";
+            yazi.innerHTML = "ÖDEV 37"
+
+        }
+      }
+      function button1(){
+            if(checkBox.checked == false){
+                yazi.innerHTML = "ÖNCE AÇINIZ!"
+                return;
+            }
+            yazi.innerHTML = "O"
+            yazi.style.color="white";
+            yazi.style.backgroundColor="red";
+        }
+        function button2(){
+            if(checkBox.checked == false){
+                yazi.innerHTML = "ÖNCE AÇINIZ!"
+                return;
+            }
+            yazi.innerHTML = "N"
+            yazi.style.color="red";
+            yazi.style.backgroundColor="white";
+        }
+        function button3(){
+            if(checkBox.checked == false){
+                yazi.innerHTML = "ÖNCE AÇINIZ!"
+                return;
+            }
+            yazi.innerHTML = "L"
+            yazi.style.color="white";
+            yazi.style.backgroundColor="blue";
+        }
+        function button4(){
+            if(checkBox.checked == false){
+                yazi.innerHTML = "ÖNCE AÇINIZ!"
+                return;
+            }
+            yazi.innerHTML = "0"
+            yazi.style.color="blue";
+            yazi.style.backgroundColor="white";
+        }
+        function button5(){
+            if(checkBox.checked == false){
+                yazi.innerHTML = "ÖNCE AÇINIZ!"
+                return;
+            }
+            yazi.innerHTML = "6"
+            yazi.style.color="white";
+            yazi.style.backgroundColor="gray";
+        }
+    </script>
+  </body>
+</html>
